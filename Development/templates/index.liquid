@@ -1,10 +1,19 @@
-{% for product in collections.frontpage.products limit:4 %}
-  <div>
-    <a href="{{ product.url | within: collection }}">{{ product.title }}</a>
-    {{ product.price | money }}
-    {% unless product.available %}<br><strong>sold out</strong>{% endunless %}
-    <a href="{{ product.url | within: collection }}">
-      <img src="{{ product.featured_image.src | img_url: 'large' }}" alt="{{ product.featured_image.alt | escape }}">
-    </a>
-  </div>
-{% endfor %}
+{% assign array_string = 'Mike,Chris,Bob,Denise,Clinton,Michael' %}
+{% assign some_type_of_array = array_string | split: ',' %}
+{% assign variable = 'something' %}
+{% assign collection = collections['Senchigami']%}
+<!-- <ul>
+  {%for name in some_type_of_array%}
+  <li>
+    {{name}}
+  </li>
+  {%endfor%}
+</ul> -->
+{{collection.title}}
+<ul>
+    {% for product in collection.products %}
+        <li>{{product.title}}
+            -
+            {{product.price | money}}</li>
+    {% endfor %}
+</ul>

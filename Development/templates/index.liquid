@@ -1,7 +1,7 @@
 {% assign array_string = 'Mike,Chris,Bob,Denise,Clinton,Michael' %}
 {% assign some_type_of_array = array_string | split: ',' %}
 {% assign variable = 'something' %}
-{% assign collection = collections['Senchigami']%}
+{% assign collection = collections['all']%}
 <!-- <ul>
   {%for name in some_type_of_array%}
   <li>
@@ -14,6 +14,13 @@
     {% for product in collection.products %}
         <li>{{product.title}}
             -
-            {{product.price | money}}</li>
+            {{product.price | money}}
+            -
+            {{product.available}}
+            {%if product.available != true%}
+            - (SOLD OUT)
+            {%endif%}
+          
+          </li>
     {% endfor %}
 </ul>

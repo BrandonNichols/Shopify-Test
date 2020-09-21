@@ -1,26 +1,10 @@
-{% assign array_string = 'Mike,Chris,Bob,Denise,Clinton,Michael' %}
-{% assign some_type_of_array = array_string | split: ',' %}
-{% assign variable = 'something' %}
-{% assign collection = collections['all']%}
-<!-- <ul>
-  {%for name in some_type_of_array%}
-  <li>
-    {{name}}
-  </li>
-  {%endfor%}
-</ul> -->
-{{collection.title}}
-<ul>
-    {% for product in collection.products %}
-        <li>{{product.title}}
-            -
-            {{product.price | money}}
-            -
-            {{product.available}}
-            {%if product.available != true%}
-            - (SOLD OUT)
-            {%endif%}
-          
-          </li>
+{% assign imageList = 'https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80,
+https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=639&q=80,
+https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=612&q=80' | strip %}
+{% assign productCollection = collections['all'] %}
+
+<div>
+    {% for item in productCollection.products %}
+        <img src={{item | img_url: 'medium'}}/>
     {% endfor %}
-</ul>
+</div>

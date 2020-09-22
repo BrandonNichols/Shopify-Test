@@ -1,10 +1,20 @@
-{% assign imageList = 'https://images.unsplash.com/photo-1561037404-61cd46aa615b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80,
-https://images.unsplash.com/photo-1537151608828-ea2b11777ee8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=639&q=80,
-https://images.unsplash.com/photo-1552053831-71594a27632d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=612&q=80' | strip %}
+{% assign imageList = 'alvan-nee-eoqnr8ikwFE-unsplash,charles-deluvio-K4mSJ7kc0As-unsplash,richard-brutyo-Sg3XwuEpybU-unsplash' | split: ',' %}
 {% assign productCollection = collections['all'] %}
 
-<div>
+<div class="home-first-images">
+    {% for productImage in productCollection.image %}
+        {% increment imageIndex %}
+        <div>
+            <!-- <img class="home-image" src={{imageList[imageIndex] | append: '.jpg' | asset_img_url: '500x' }}/> -->
+            <img class="product-home-size" src={{productImage}}/>
+        </div>
+    {% endfor %}
+</div>
+
+<!-- <div>
+    <temp data-prettydiff-ignore><temp data-prettydiff-ignore><temp data-prettydiff-ignore><temp data-prettydiff-ignore>{% comment %}
     {% for item in productCollection.products %}
         <img src={{item | img_url: 'medium'}}/>
     {% endfor %}
-</div>
+    {% endcomment %}</temp></temp></temp></temp>
+</div> -->

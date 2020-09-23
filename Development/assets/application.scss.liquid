@@ -1,17 +1,129 @@
 // Put your styles in this file.
 // Shopify will compile SCSS/SASS on each deploy.
 // Note: "@import" rules aren’t supported.
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default padding */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+}
+
+/* Remove list styles on ul, ol elements with a class attribute */
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Make images easier to work with */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Natural flow and rhythm in articles by default */
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+//start of own css
 .home-first-images {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  width: 100vw;
+  align-items: stretch;
 }
 
 .home-image {
-  position: fixed;
+  position: relative;
+  background-size: cover;
+  min-width: 500px;
+  min-height: 700px;
 }
 
-.product-home-size {
-  max-width: 100px;
+.home-div-background1 {
+  background-image: url({{"alvan-nee-eoqnr8ikwFE-unsplash.jpg"|asset_url}});
+}
+
+.home-div-background2 {
+  background-image: url({{"charles-deluvio-K4mSJ7kc0As-unsplash.jpg"|asset_url}});
+}
+
+.home-div-background3 {
+  background-image: url({{"richard-brutyo-Sg3XwuEpybU-unsplash.jpg"|asset_url}});
+}
+
+.product-home {
+  position: absolute;
+  z-index: 100;
+}
+
+.image1 {
+  bottom: 0;
+  right: 0;
+}
+
+.image2 {
+  bottom: 0;
+  right: 35%;
+}
+
+.image3 {
+  bottom: 0;
+  left: 0;
 }

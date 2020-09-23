@@ -1,20 +1,15 @@
-{% assign imageList = 'alvan-nee-eoqnr8ikwFE-unsplash,charles-deluvio-K4mSJ7kc0As-unsplash,richard-brutyo-Sg3XwuEpybU-unsplash' | split: ',' %}
+{% assign imageList =
+'alvan-nee-eoqnr8ikwFE-unsplash,charles-deluvio-K4mSJ7kc0As-unsplash,richard-brutyo-Sg3XwuEpybU-unsplash'
+| split: ',' %}
 {% assign productCollection = collections['all'] %}
+{% assign
+imageIndex = 0%}
 
 <div class="home-first-images">
-    {% for productImage in productCollection.image %}
-        {% increment imageIndex %}
-        <div>
-            <!-- <img class="home-image" src={{imageList[imageIndex] | append: '.jpg' | asset_img_url: '500x' }}/> -->
-            <img class="product-home-size" src={{productImage}}/>
+    {% for productImage in productCollection.products %}
+        <div class="home-image home-div-background{{imageIndex | plus: 1}}">
+            <img class="product-home image{{imageIndex | plus: 1}}" src={{productImage | img_url: 'medium'}}/>
         </div>
+        {% assign imageIndex = imageIndex | plus: 1%}
     {% endfor %}
 </div>
-
-<!-- <div>
-    <temp data-prettydiff-ignore><temp data-prettydiff-ignore><temp data-prettydiff-ignore><temp data-prettydiff-ignore>{% comment %}
-    {% for item in productCollection.products %}
-        <img src={{item | img_url: 'medium'}}/>
-    {% endfor %}
-    {% endcomment %}</temp></temp></temp></temp>
-</div> -->
